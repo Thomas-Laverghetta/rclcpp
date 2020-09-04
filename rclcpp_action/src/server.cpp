@@ -92,8 +92,8 @@ ServerBase::ServerBase(
         RCLCPP_DEBUG(
           rclcpp::get_logger("rclcpp_action"),
           "failed to fini rcl_action_server_t in deleter");
+        delete ptr;
       }
-      delete ptr;
     };
 
   pimpl_->action_server_.reset(new rcl_action_server_t, deleter);
